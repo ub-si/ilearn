@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:ilearn/app/pages/base_page.dart';
 
 import 'app/core/config/app_colors.dart';
+import 'app/routes/app_routes_pages.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,9 +26,9 @@ class MyApp extends StatelessWidget {
         ),
       ),
       debugShowCheckedModeBanner: false,
-      //initialRoute: AppRoutes.splash,
-      //getPages: AppPages.pages,
-      home: const BasePage(),
+      initialRoute: AppRoutes.splash,
+      getPages: AppPages.pages,
+      //home: const BasePage(),
     );
   }
 }

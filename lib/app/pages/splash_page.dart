@@ -1,8 +1,28 @@
 import 'package:flutter/material.dart';
 import '../core/config/app_colors.dart';
+import '../services/http_manager.dart';
 
-class SplashPage extends StatelessWidget {
+class SplashPage extends StatefulWidget {
   const SplashPage({Key? key}) : super(key: key);
+
+  @override
+  State<SplashPage> createState() => _SplashPageState();
+}
+
+class _SplashPageState extends State<SplashPage> {
+  @override
+  void initState() {
+    super.initState();
+
+    getAllUsers();
+  }
+
+  getAllUsers() async {
+    HttpManager httpManager = HttpManager();
+    Map result = await httpManager.request(url: "https://ilearn.appke.com.br/api/users", method: "GET");
+
+    print(result);
+  }
 
   @override
   Widget build(BuildContext context) {
