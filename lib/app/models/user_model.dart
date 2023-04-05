@@ -43,6 +43,10 @@ class UserModel {
     );
   }
 
+  static List<UserModel> fromList(list) {
+    return List<UserModel>.from(list.map((x) => UserModel.fromMap(x)));
+  }
+
   String toJson() => json.encode(toMap());
 
   factory UserModel.fromJson(String source) => UserModel.fromMap(json.decode(source));

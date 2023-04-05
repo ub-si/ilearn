@@ -18,7 +18,7 @@ class CategoryModel {
 
   factory CategoryModel.fromMap(Map<String, dynamic> map) {
     return CategoryModel(
-      id: map['id']?.toInt(),
+      id: map['id'],
       name: map['name'],
     );
   }
@@ -26,6 +26,10 @@ class CategoryModel {
   String toJson() => json.encode(toMap());
 
   factory CategoryModel.fromJson(String source) => CategoryModel.fromMap(json.decode(source));
+
+  static List<CategoryModel> fromList(list) {
+    return List<CategoryModel>.from(list.map((x) => CategoryModel.fromMap(x)));
+  }
 
   @override
   String toString() => 'CategoryModel(id: $id, name: $name)';

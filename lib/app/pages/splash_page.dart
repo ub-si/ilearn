@@ -17,7 +17,7 @@ class _SplashPageState extends State<SplashPage> {
     getAllUsers();
   }
 
-  getAllUsers() async {
+  Future getAllUsers() async {
     HttpManager httpManager = HttpManager();
     Map result = await httpManager.request(url: "https://ilearn.appke.com.br/api/users", method: "GET");
 
