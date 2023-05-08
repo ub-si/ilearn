@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:ilearn/app/bindings/app_bindind.dart';
 
 import 'app/core/config/app_colors.dart';
 import 'app/pages/base_page.dart';
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       debugShowCheckedModeBanner: false,
+      initialBinding: AppBinding(),
       //initialRoute: AppRoutes.splash,
       //getPages: AppPages.pages,
       home: const BasePage(),
