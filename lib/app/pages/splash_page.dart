@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../core/config/app_colors.dart';
-import '../services/http_manager.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({Key? key}) : super(key: key);
@@ -14,15 +13,15 @@ class _SplashPageState extends State<SplashPage> {
   void initState() {
     super.initState();
 
-    getAllUsers();
+    //getAllUsers();
   }
 
-  Future getAllUsers() async {
+  /* Future getAllUsers() async {
     HttpManager httpManager = HttpManager();
     Map result = await httpManager.request(url: "https://ilearn.appke.com.br/api/users", method: "GET");
 
     print(result);
-  }
+  }*/
 
   @override
   Widget build(BuildContext context) {

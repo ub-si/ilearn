@@ -1,4 +1,4 @@
-import 'package:ilearn/app/services/http_manager.dart';
+import 'package:ilearn/app/core/services/http_manager.dart';
 
 import '../models/category_model.dart';
 
