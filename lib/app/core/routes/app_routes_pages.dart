@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 
+import '../../bindings/category_binding.dart';
 import '../../pages/auth/login_page.dart';
 import '../../pages/auth/register_page.dart';
 import '../../pages/base_page.dart';
@@ -11,6 +12,9 @@ abstract class AppPages {
     GetPage(
       name: AppRoutes.base,
       page: () => const BasePage(),
+      bindings: [
+        CategoryBinding(),
+      ],
     ),
     GetPage(
       name: AppRoutes.splash,
@@ -18,7 +22,7 @@ abstract class AppPages {
     ),
     GetPage(
       name: AppRoutes.login,
-      page: () => const LoginPage(),
+      page: () => LoginPage(),
     ),
     GetPage(
       name: AppRoutes.register,

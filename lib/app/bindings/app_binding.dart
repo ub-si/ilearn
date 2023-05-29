@@ -10,7 +10,7 @@ class AppBinding extends Bindings {
   void dependencies() {
     Get.put(HttpManager());
     Get.put(AppUtils());
-    Get.lazyPut(() => AuthRepository(httpManager: Get.find(), appUtils: Get.find()));
+    Get.put(AuthRepository(httpManager: Get.find(), appUtils: Get.find()));
     Get.put(AuthController(repository: Get.find(), appUtils: Get.find()));
   }
 }

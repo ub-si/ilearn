@@ -57,6 +57,9 @@ class AuthController extends GetxController {
   Future validateToke() async {
     String? token = await appUtils.getLocalData(key: 'user-token');
 
+    //Esperar 3 segundo com exibindo a splash
+    Future.delayed(const Duration(seconds: 3));
+
     if (token != null) {
       ApiResult<UserModel> result = await repository.validateToken(token);
       if (!result.isError) {

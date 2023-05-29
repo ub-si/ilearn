@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:intl/intl.dart';
 import 'package:intl/date_symbol_data_local.dart';
+import 'package:intl/intl.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AppUtils {
-  final _storage = const FlutterSecureStorage();
-
   Future saveLocalData({required String key, required String data}) async {
-    await _storage.write(key: key, value: data);
+    final SharedPreferences storage = await SharedPreferences.getInstance();
+    await storage.setString(key, data);
   }
 
   Future<String?> getLocalData({required String key}) async {
-    return await _storage.read(key: key);
+    final SharedPreferences storage = await SharedPreferences.getInstance();
+    return storage.getString(key);
   }
 
   Future removeLocalData({required String key}) async {
-    return await _storage.delete(key: key);
+    final SharedPreferences storage = await SharedPreferences.getInstance();
+    return await storage.remove(key);
   }
 
   String priceToCurrency(double price) {
@@ -36,11 +37,11 @@ class AppUtils {
     Fluttertoast.showToast(
       msg: message,
       toastLength: Toast.LENGTH_LONG,
-      gravity: ToastGravity.BOTTOM,
-      timeInSecForIosWeb: 3,
-      backgroundColor: isError ? Colors.red : Colors.white,
+      gravity: ToastGravity.TOP,
+      timeInSecForIosWeb: 4,
+      backgroundColor: isError ? Colors.red : Colors.green,
       textColor: isError ? Colors.white : Colors.black,
-      fontSize: 14,
+      fontSize: 18,
     );
   }
 }
