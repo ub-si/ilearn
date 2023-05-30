@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 
 import '../../bindings/category_binding.dart';
+import '../../bindings/post_binding.dart';
 import '../../pages/auth/login_page.dart';
 import '../../pages/auth/register_page.dart';
 import '../../pages/base_page.dart';
@@ -13,6 +14,7 @@ abstract class AppPages {
       name: AppRoutes.base,
       page: () => const BasePage(),
       bindings: [
+        PostBinding(),
         CategoryBinding(),
       ],
     ),

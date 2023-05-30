@@ -1,5 +1,4 @@
-import 'package:ilearn/app/core/services/http_manager.dart';
-
+import '../core/services/http_manager.dart';
 import '../core/utils/api_result.dart';
 import '../core/utils/urls.dart';
 import '../models/category_model.dart';

@@ -33,12 +33,12 @@ class UserModel {
 
   factory UserModel.fromMap(Map<String, dynamic> map) {
     return UserModel(
-      id: map['id']?.toInt(),
+      id: map['id'],
       name: map['name'],
       email: map['email'],
       password: map['password'],
       isAdmin: map['isAdmin'],
-      createdAt: map['createdAt'] != null ? DateTime.fromMillisecondsSinceEpoch(map['createdAt']) : null,
+      createdAt: map["created_at"] != null ? DateTime.parse(map["created_at"]) : null,
       token: map['token'],
     );
   }
@@ -50,4 +50,28 @@ class UserModel {
   String toJson() => json.encode(toMap());
 
   factory UserModel.fromJson(String source) => UserModel.fromMap(json.decode(source));
+
+  @override
+  String toString() {
+    return 'UserModel(id: $id, name: $name, email: $email, password: $password, isAdmin: $isAdmin, createdAt: $createdAt, token: $token)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+
+    return other is UserModel &&
+        other.id == id &&
+        other.name == name &&
+        other.email == email &&
+        other.password == password &&
+        other.isAdmin == isAdmin &&
+        other.createdAt == createdAt &&
+        other.token == token;
+  }
+
+  @override
+  int get hashCode {
+    return id.hashCode ^ name.hashCode ^ email.hashCode ^ password.hashCode ^ isAdmin.hashCode ^ createdAt.hashCode ^ token.hashCode;
+  }
 }
