@@ -25,6 +25,8 @@ class HttpManager {
           data: body,
           queryParameters: queryParameters);
 
+      print(response.data);
+
       return response.data;
     } on DioError catch (error) {
       return error.response?.data ?? {};

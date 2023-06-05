@@ -17,7 +17,14 @@ class PostController extends GetxController {
     required this.appUtils,
   });
 
-  RxList<PostModel> listCategories = RxList<PostModel>([]);
+  @override
+  void onInit() {
+    super.onInit();
+
+    getPosts();
+  }
+
+  RxList<PostModel> listPost = RxList<PostModel>([]);
   RxBool isLoading = false.obs;
 
   Future getPosts() async {
@@ -25,7 +32,7 @@ class PostController extends GetxController {
 
     ApiResult<List<PostModel>> result = await repository.getAll(auth.user.token!);
     if (!result.isError) {
-      listCategories.assignAll(result.data!);
+      listPost.assignAll(result.data!);
     } else {
       appUtils.showToast(message: result.message!, isError: true);
     }

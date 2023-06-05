@@ -17,6 +17,13 @@ class CategoryController extends GetxController {
     required this.appUtils,
   });
 
+  @override
+  void onInit() {
+    super.onInit();
+
+    getCategories();
+  }
+
   RxList<CategoryModel> listCategories = RxList<CategoryModel>([]);
   RxBool isLoading = false.obs;
 

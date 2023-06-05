@@ -36,12 +36,12 @@ class PostModel {
   factory PostModel.fromMap(Map<String, dynamic> map) {
     return PostModel(
       id: map['id'],
-      userId: map['userId'],
-      userName: map['userName'],
-      categoryId: map['categoryId'],
+      userId: map['user_id'],
+      userName: map['user_name'],
+      categoryId: map['category_id'],
       title: map['title'],
       content: map['content'],
-      photoPath: map['photoPath'],
+      photoPath: map['photo_path'],
       createdAt: map["created_at"] != null ? DateTime.parse(map["created_at"]) : null,
     );
   }
