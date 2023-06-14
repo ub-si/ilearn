@@ -10,10 +10,7 @@ class AuthController extends GetxController {
   final AuthRepository repository;
   final AppUtils appUtils;
 
-  AuthController({
-    required this.repository,
-    required this.appUtils,
-  });
+  AuthController({required this.repository, required this.appUtils});
 
   RxBool isLoading = false.obs;
   UserModel user = UserModel();
@@ -56,9 +53,6 @@ class AuthController extends GetxController {
 
   Future validateToke() async {
     String? token = await appUtils.getLocalData(key: 'user-token');
-
-    //Esperar 3 segundo com exibindo a splash
-    Future.delayed(const Duration(seconds: 3));
 
     if (token != null) {
       ApiResult<UserModel> result = await repository.validateToken(token);

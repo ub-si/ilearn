@@ -37,7 +37,7 @@ class UserModel {
       name: map['name'],
       email: map['email'],
       password: map['password'],
-      isAdmin: map['isAdmin'],
+      isAdmin: map['is_admin'],
       createdAt: map["created_at"] != null ? DateTime.parse(map["created_at"]) : null,
       token: map['token'],
     );
