@@ -29,7 +29,7 @@ class _BasePageState extends State<BasePage> {
             HomePage(),
             const CommentPage(),
             CategoryPage(),
-            const ProfilePage(),
+            ProfilePage(),
           ],
         ),
         bottomNavigationBar: BottomNavigationBar(
