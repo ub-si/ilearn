@@ -41,6 +41,7 @@ class AuthRepository {
 
     Map<String, dynamic> body = user.toMap();
     body['password_confirmation'] = user.password;
+    body['is_admin'] = false;
 
     final response = await httpManager.request(
       url: endpoint,
